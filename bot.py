@@ -2,6 +2,7 @@ import discord
 import os
 import commands
 import importlib
+import inspect
 
 prefix = 'ch '
  
@@ -16,7 +17,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        module_object = importlib.import_module(commands)
+        module_object = importlib.import_module('commands')
         module_class = inspect.getmembers(module_object, inspect.isclass)[0][1]
         
         print(module_class)
