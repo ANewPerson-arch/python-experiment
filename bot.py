@@ -1,7 +1,6 @@
 import discord
 import os
 from commands import *
-from modulefinder import ModuleFinder
 
 prefix = 'ch '
 
@@ -16,15 +15,9 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        finder = ModuleFinder()
-        try:      
-            components = command.split('.')
-            mod = __import__(components[0])
-            for comp in components[1:]:
-                mod = getattr(mod, comp)
-            return mod.execute(message,args)
-        except:
-            return
+            module = importlib.import_module('my_package.my_module')
+            my_class = getattr(module, 'MyClass')
+            my_instance = my_class().execute(message,args)
             
 
 client = DrPirocks()
