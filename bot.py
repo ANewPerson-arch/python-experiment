@@ -16,7 +16,9 @@ class DrPirocks(discord.Client):
         args = message.content[slice(len(prefix))].strip().split()
         command = args.pop(1).lower()
 
-        await message.channel.send(command += args)
+        e = command + args
+
+        await message.channel.send(e)
 
 client = DrPirocks()
 env = os.environ.get("BOT_TOKEN")
