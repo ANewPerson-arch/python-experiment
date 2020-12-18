@@ -1,6 +1,7 @@
 import discord
 import os
 from commands import *
+import importlib
 
 prefix = 'ch '
 
@@ -15,9 +16,9 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-            module = importlib.import_module('my_package.my_module')
-            my_class = getattr(module, 'MyClass')
-            my_instance = my_class().execute(message,args)
+        module = importlib.import_module()
+        my_class = getattr(module, command)
+        my_instance = my_class().execute(message,args)
             
 
 client = DrPirocks()
