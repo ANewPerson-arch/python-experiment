@@ -17,11 +17,14 @@ class DrPirocks(discord.Client):
         command = args.pop(0).lower()
         
         finder = ModuleFinder()
-        
-        if not(finder.run_script(command + '.py')):
+        try:      
+            components = command.split('.')
+            mod = __import__(components[0])
+            for comp in components[1:]:
+                mod = getattr(mod, comp)
+            return mod.execute(message,args)
+        except:
             return
-        
-        finder.run_script(command + '.py')
             
 
 client = DrPirocks()
