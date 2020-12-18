@@ -14,7 +14,7 @@ class DrPirocks(discord.Client):
             return
 
         args = message.content[slice(len(prefix))].strip().split()
-        command = deque(args).popLeft().lower()
+        command = args.pop(0).lower()
 
         message.send(command)
 
