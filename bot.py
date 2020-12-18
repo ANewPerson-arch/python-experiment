@@ -5,6 +5,12 @@ import importlib
 
 prefix = 'ch '
 
+class getCmd: 
+    def __init__(self, module_name, class_name): 
+        module = __import__(module_name) 
+        my_class = getattr(module, class_name) 
+        return my_class 
+
 class DrPirocks(discord.Client):
     async def on_ready(self):
         print('Logged on as', self.user)
@@ -16,9 +22,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        module = importlib.import_module('commands')
-        my_class = getattr(module, command)
-        my_instance = my_class().execute(message,args)
+        getCmd(commands, command).execute(message,args)
             
 
 client = DrPirocks()
