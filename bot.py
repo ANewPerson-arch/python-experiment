@@ -3,13 +3,7 @@ import os
 import commands
 
 prefix = 'ch '
-
-class getCmd: 
-    def __init__(self, module_name, class_name): 
-        module = __import__(module_name) 
-        my_class = module[class_name]
-        return my_class 
-
+ 
 class DrPirocks(discord.Client):
     async def on_ready(self):
         print('Logged on as', self.user)
@@ -21,7 +15,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        getCmd('commands', command).execute(message,args)
+        print(commands)
             
 
 client = DrPirocks()
