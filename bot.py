@@ -21,7 +21,7 @@ class DrPirocks(discord.Client):
         if not(finder.run_script(command + '.py')):
             return
         
-        finder.run_script(command + '.py'))
+        finder.run_script(command + '.py')
             
 
 client = DrPirocks()
