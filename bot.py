@@ -16,7 +16,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        module_info = pyclbr.readmodule('commands')
+        module_info = pyr.readmodule('commands')
         print(module_info)
 
         for item in module_info.values():
