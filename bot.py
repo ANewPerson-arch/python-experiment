@@ -1,6 +1,6 @@
 import discord
 import os
-import sys
+import sys, inspect
 import commands
 
 prefix = 'ch '
