@@ -1,7 +1,7 @@
 import discord
 import os
-import sys, inspect
 import commands
+import pyclbr as pyr
 
 prefix = 'ch '
  
@@ -16,8 +16,11 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        clsmembers = inspect.getmembers(sys.modules[__'commands'__], inspect.isclass)        
-        print(clsmembers)
+        module_info = pyclbr.readmodule('commands')
+        print(module_info)
+
+        for item in module_info.values():
+            print(item.name)
             
 
 client = DrPirocks()
