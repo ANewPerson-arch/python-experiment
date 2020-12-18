@@ -2,7 +2,6 @@ import discord
 from commands import *
 from collections import deque
 
-commands = discord.Collection()
 prefix = 'vb '
 
 class DrPirocks(discord.Client):
