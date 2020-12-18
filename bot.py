@@ -19,4 +19,5 @@ class DrPirocks(discord.Client):
         message.send(command)
 
 client = DrPirocks()
-client.run('token')
+env = os.environ.get("BOT_TOKEN")
+client.run(env)
