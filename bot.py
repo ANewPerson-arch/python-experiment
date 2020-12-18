@@ -1,4 +1,5 @@
 import discord
+import os
 from commands import *
 from collections import deque
 
