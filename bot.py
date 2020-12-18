@@ -15,9 +15,9 @@ class DrPirocks(discord.Client):
 
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
-
-        await message.channel.send(args)
-        await message.channel.send(command)
+        
+        if (commands.includes(command)):
+            await message.channel.send('It matches!')
 
 client = DrPirocks()
 env = os.environ.get("BOT_TOKEN")
