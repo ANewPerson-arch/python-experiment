@@ -1,7 +1,6 @@
 import discord
 import os
-from commands import * as commands
-from collections import deque
+from commands import *
 
 prefix = 'ch '
 
@@ -16,8 +15,9 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        if (commands.includes(command)):
-            await message.channel.send('It matches!')
+        if command == 'send':
+            send.execute(message,args)
+            
 
 client = DrPirocks()
 env = os.environ.get("BOT_TOKEN")
