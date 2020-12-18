@@ -1,2 +1,2 @@
-def execute(message, args):
-    message.send('Nerds usin module.exports')
+async def execute(message, args):
+    await message.channel.send('Nerds usin module.exports')
