@@ -13,7 +13,7 @@ class DrPirocks(discord.Client):
         if not(message.content.startswith(prefix)) or message.author.bot or not(message.guild):
             return
 
-        args = message.content[slice(len(prefix))].strip().split()
+        args = message.content.replace(prefix).strip().split()
         command = args.pop(0).lower()
 
         await message.channel.send(args)
