@@ -1,7 +1,7 @@
 import discord
 import os
 import commands
-import pyclbr as pyr
+import importlib
 
 prefix = 'ch '
  
