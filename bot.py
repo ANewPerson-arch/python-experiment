@@ -16,12 +16,11 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        module_info = pyr.readmodule('commands')
-        print(module_info)
+        module_object = importlib.import_module(commands)
+        module_class = inspect.getmembers(module_object, inspect.isclass)[0][1]
+        
+        print(module_class)
 
-        for item in module_info.values():
-            print(item.name)
-            
 
 client = DrPirocks()
 env = os.environ.get("BOT_TOKEN")
