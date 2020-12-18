@@ -1,7 +1,6 @@
 import discord
 import os
 import commands
-import importlib
 
 prefix = 'ch '
 
@@ -22,7 +21,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        getCmd(commands, command).execute(message,args)
+        getCmd('commands', command).execute(message,args)
             
 
 client = DrPirocks()
