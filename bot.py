@@ -16,7 +16,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        clsmembers = inspect.getmembers(sys.modules[__commands__], inspect.isclass
+        clsmembers = inspect.getmembers(sys.modules[__commands__], inspect.isclass)
         print(clsmembers)
             
 
