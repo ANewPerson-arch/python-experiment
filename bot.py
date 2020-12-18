@@ -1,6 +1,6 @@
 import discord
 import os
-from commands import *
+from commands import * as commands
 from collections import deque
 
 prefix = 'ch '
