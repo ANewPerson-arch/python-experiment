@@ -7,7 +7,7 @@ prefix = 'ch '
 class getCmd: 
     def __init__(self, module_name, class_name): 
         module = __import__(module_name) 
-        my_class = getattr(module, class_name) 
+        my_class = module_name[class_name]
         return my_class 
 
 class DrPirocks(discord.Client):
