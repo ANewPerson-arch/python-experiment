@@ -1,5 +1,6 @@
 import discord
 import os
+import sys
 import commands
 
 prefix = 'ch '
@@ -15,7 +16,7 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        print(commands)
+        print(clsmembers = inspect.getmembers(sys.modules[__commands__], inspect.isclass)
             
 
 client = DrPirocks()
