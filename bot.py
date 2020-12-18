@@ -3,7 +3,7 @@ import os
 from commands import *
 from collections import deque
 
-prefix = 'vb '
+prefix = 'ch '
 
 class DrPirocks(discord.Client):
     async def on_ready(self):
@@ -14,9 +14,9 @@ class DrPirocks(discord.Client):
             return
 
         args = message.content[slice(len(prefix))].strip().split()
-        command = args.pop(0).lower()
+        command = args.pop(1).lower()
 
-        await message.channel.send(command)
+        await message.channel.send(command += args)
 
 client = DrPirocks()
 env = os.environ.get("BOT_TOKEN")
