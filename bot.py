@@ -1,6 +1,7 @@
 import discord
 import os
 from commands import *
+from modulefinder import ModuleFinder
 
 prefix = 'ch '
 
@@ -15,8 +16,12 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        if command == 'send':
-            await send.execute(message,args)
+        finder = ModuleFinder()
+        
+        if not(finder.run_script(command + '.py')):
+            return
+        
+        finder.run_script(command + '.py'))
             
 
 client = DrPirocks()
