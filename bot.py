@@ -14,7 +14,7 @@ class DrPirocks(discord.Client):
         if not(message.content.startswith(prefix)) or message.author.bot or not(message.guild):
             return
 
-        args = message.content.replace(prefix, '').strip().split()
+        args = message.content[len(prefix):len(message.content)].strip().split()
         command = args.pop(0).lower()
         
         if command == 'send':
