@@ -21,7 +21,7 @@ class DrPirocks(discord.Client):
         await message.channel.send(args)
         
         if command == 'send':
-            send.execute(message, args)
+            await send.execute(message, args)
 
 
 client = DrPirocks()
