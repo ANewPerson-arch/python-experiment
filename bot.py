@@ -1,6 +1,6 @@
 import discord
 import os
-import commands
+from commands import *
 import importlib
 import inspect
 
