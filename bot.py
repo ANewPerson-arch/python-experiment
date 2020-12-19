@@ -17,10 +17,8 @@ class DrPirocks(discord.Client):
         args = message.content.replace(prefix, '').strip().split()
         command = args.pop(0).lower()
         
-        module_object = importlib.import_module('commands')
-        module_class = inspect.getmembers(module_object, inspect.isclass)
-        
-        print(module_class)
+        if command == 'send':
+            send.execute(message, args)
 
 
 client = DrPirocks()
