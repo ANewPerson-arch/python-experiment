@@ -17,6 +17,9 @@ class DrPirocks(discord.Client):
         args = message.content[len(prefix):len(message.content)].strip().split()
         command = args.pop(0).lower()
         
+        await message.channel.send(command)
+        await message.channel.send(args)
+        
         if command == 'send':
             send.execute(message, args)
 
